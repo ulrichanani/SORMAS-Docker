@@ -11,7 +11,7 @@ COPY ./vhost.conf.sh /tmp/vhost.conf.sh
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 RUN chmod +x /tmp/vhost.conf.sh
-COPY ../../deploy.zip  ${DEPLOY_PATH}/sormas.zip
+COPY ./deploy.zip  ${DEPLOY_PATH}/sormas.zip
 
 
 RUN mkdir -p /var/www/sormas/downloads && \

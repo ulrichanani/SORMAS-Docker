@@ -18,7 +18,7 @@ ENV SORMAS_URL=https://github.com/hzi-braunschweig/SORMAS-Project/releases/downl
 ENV MAIL_FROM=root@localhost
 ENV DEBIAN_FRONTEND=noninteractive
 EXPOSE 6048
-COPY ../../deploy.zip ${DEPLOY_PATH}/${DOMAIN_NAME}.zip
+COPY ./deploy.zip ${DEPLOY_PATH}/${DOMAIN_NAME}.zip
 
 RUN apt-get update \
   && apt-get install -y software-properties-common \
