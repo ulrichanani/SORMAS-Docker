@@ -1,6 +1,7 @@
 version: '3'
 services:
   sormas:
+    build: ./sormas
     restart: unless-stopped
     links:
       - postgres
@@ -27,6 +28,7 @@ services:
     depends_on:
       - postgres
   postgres:
+    build: ./postgres
     restart: unless-stopped
     command: -c 'config_file=/etc/postgresql/postgresql.conf'
     environment:
@@ -41,6 +43,7 @@ services:
     ports:
       - "5432:5432"
   pg_dump:
+    build: ./pg_dump
     restart: unless-stopped
     environment:
       - DB_HOST=${DB_HOST}
@@ -55,6 +58,7 @@ services:
     volumes:
       - /backup:/var/opt/db_dumps
   apache2:
+    build: ./apache2
     restart: unless-stopped
     links:
       - sormas
