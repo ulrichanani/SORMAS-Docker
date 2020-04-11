@@ -4,7 +4,6 @@ services:
     restart: unless-stopped
     links:
       - postgres
-    image: hzibraunschweig/sormas-application:${SORMAS_VERSION}
     environment:
       - SORMAS_POSTGRES_USER=${SORMAS_POSTGRES_USER}
       - SORMAS_POSTGRES_PASSWORD=${SORMAS_POSTGRES_PASSWORD}
@@ -30,7 +29,6 @@ services:
   postgres:
     restart: unless-stopped
     command: -c 'config_file=/etc/postgresql/postgresql.conf'
-    image: hzibraunschweig/sormas-postgres:${SORMAS_VERSION}
     environment:
       - POSTGRES_PASSWORD=${SORMAS_POSTGRES_PASSWORD}
       - DB_NAME=sormas
@@ -44,7 +42,6 @@ services:
       - "5432:5432"
   pg_dump:
     restart: unless-stopped
-    image: hzibraunschweig/sormas-pg-dump:${SORMAS_VERSION}
     environment:
       - DB_HOST=${DB_HOST}
       - DB_NAME=sormas
@@ -63,7 +60,6 @@ services:
       - sormas
     depends_on:
       - sormas
-    image: hzibraunschweig/sormas-apache2:${SORMAS_VERSION}
     environment:
       - SORMAS_SERVER_URL=${SORMAS_SERVER_URL}
       - TZ=${TZ}
