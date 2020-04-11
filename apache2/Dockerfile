@@ -11,13 +11,13 @@ COPY ./vhost.conf.sh /tmp/vhost.conf.sh
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 RUN chmod +x /tmp/vhost.conf.sh
-COPY ./deploy.zip  ${DEPLOY_PATH}/sormas.zip
+COPY ./deploy.zip  /sormas.zip
 
 
 RUN mkdir -p /var/www/sormas/downloads && \
     DEPLOY_PATH=$(mktemp -d) && \
     cd ${DEPLOY_PATH} && \
-    unzip sormas.zip deploy/android/*  && \
+    unzip /sormas.zip deploy/android/*  && \
     mv deploy/android/* /var/www/sormas/downloads/ && \
     cd - && \
     rm -rf ${DEPLOY_PATH}

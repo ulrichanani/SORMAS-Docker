@@ -28,8 +28,8 @@ mkdir -p ${DEPLOY_PATH}
 mkdir -p ${DOWNLOADS_PATH}
 
 pushd ${DEPLOY_PATH}
-unzip sormas.zip
-rm sormas.zip
+unzip /sormas.zip
+rm /sormas.zip
 popd
 
 # Setting ASADMIN_CALL and creating domain
