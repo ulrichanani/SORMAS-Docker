@@ -14,11 +14,11 @@ RUN chmod +x /tmp/vhost.conf.sh
 COPY ./deploy.zip  /sormas.zip
 
 
-RUN mkdir -p /var/www/sormas/downloads && \
+RUN mkdir -p /var/www/ogrie/downloads && \
     DEPLOY_PATH=$(mktemp -d) && \
     cd ${DEPLOY_PATH} && \
     unzip /sormas.zip deploy/android/*  && \
-    mv deploy/android/* /var/www/sormas/downloads/ && \
+    mv deploy/android/* /var/www/ogrie/downloads/ && \
     cd - && \
     rm -rf ${DEPLOY_PATH}
 
