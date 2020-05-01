@@ -19,7 +19,7 @@ Listen 443
 <VirtualHost *:443>
         ServerName ${SORMAS_SERVER_URL}
 
-	RedirectMatch "^(/(?!downloads).*)" https://${SORMAS_SERVER_URL}/sormas-ui\$1
+	RedirectMatch "^(/(?!downloads).*)" https://${SORMAS_SERVER_URL}/ogrie-ui\$1
 	
         ErrorLog /usr/local/apache2/error.log
         LogLevel warn
@@ -40,10 +40,10 @@ Listen 443
 	
         ProxyRequests Off
         ProxyPreserveHost On
-        ProxyPass /sormas-ui http://sormas:6080/sormas-ui
-        ProxyPassReverse /sormas-ui http://sormas:6080/sormas-ui
-        ProxyPass /sormas-rest http://sormas:6080/sormas-rest
-        ProxyPassReverse /sormas-rest http://sormas:6080/sormas-rest
+        ProxyPass /ogrie-ui http://sormas:6080/sormas-ui
+        ProxyPassReverse /ogrie-ui http://sormas:6080/sormas-ui
+        ProxyPass /ogrie-rest http://sormas:6080/sormas-rest
+        ProxyPassReverse /ogrie-rest http://sormas:6080/sormas-rest
         RequestHeader set X-Forwarded-Proto https
 
         Options -Indexes
