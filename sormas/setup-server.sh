@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ROOT_PREFIX=
+DOMAIN_NAME=ogrie
 # make sure to update payara-sormas script when changing the user name
 USER_NAME=payara
 
